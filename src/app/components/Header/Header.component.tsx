@@ -14,7 +14,6 @@ const NavButton = styled.div<{ isSelected?: boolean }>`
 	height: 40px;
 	width: 150px;
 	border: 1px solid black;
-
 	background-color: ${({ isSelected }) => (isSelected ? 'red' : 'blue')};
 	cursor: pointer;
 `;

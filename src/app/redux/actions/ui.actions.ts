@@ -1,4 +1,5 @@
 import { UI_TYPES } from '../types';
+import { Dispatch } from 'redux';
 
 export const setSelectedNavBarID = (dispatch: any, payload: any) => {
 	dispatch({
