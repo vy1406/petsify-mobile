@@ -1,9 +1,9 @@
 import React from 'react';
-import './App.css';
+import '../App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { ROUTES } from './app/constants/app.constants';
-import Login from './app/components/Login/Login.component';
-import Home from './app/components/Home/Home.component';
+import { ROUTES } from './constants/app.constants';
+import Login from './components/Login/Login.component';
+import Home from './components/Home/Home.component';
 
 function App() {
 	return (

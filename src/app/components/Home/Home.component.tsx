@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import NavBar from '../Header/Header.component';
 
 const Page = styled.div`
 	display: flex;
@@ -30,6 +31,7 @@ const Home: React.FunctionComponent = () => {
 
 	return (
 		<Page>
+			<NavBar />
 			Home component
 			<MenuButton onClick={handleGetAllPets}>Get all pets</MenuButton>
 			<MenuButton onClick={handleGetUsers}>Get all users</MenuButton>

@@ -1,0 +1,3 @@
+export const UI_TYPES = {
+	SET_SELECTED_NAV_ID: 'SET_SELECTED_NAV_ID'
+};
