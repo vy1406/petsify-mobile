@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 import { IAppState } from '../../redux/schemas/index';
-import { setSelectedNavBarID } from '../../redux/actions/ui.actions';
+import { setSelectedNavBarID, getUser } from '../../redux/actions/ui.actions';
 
 const Page = styled.div`
 	display: flex;
@@ -21,11 +21,13 @@ const NavButton = styled.div<{ isSelected?: boolean }>`
 interface INavBarProps {
 	selectedNavBardID: number;
 	selectNavBar: (navBarId: number) => void;
+	getUserLocal: (userId: number) => void;
 }
 
 const NavBar: React.FunctionComponent<INavBarProps> = ({
 	selectedNavBardID,
-	selectNavBar
+	selectNavBar,
+	getUserLocal
 }: INavBarProps) => {
 	return (
 		<Page>
@@ -35,7 +37,7 @@ const NavBar: React.FunctionComponent<INavBarProps> = ({
 			<NavButton isSelected={2 === selectedNavBardID} onClick={() => selectNavBar(2)}>
 				Page 2
 			</NavButton>
-			<NavButton isSelected={3 === selectedNavBardID} onClick={() => selectNavBar(3)}>
+			<NavButton isSelected={3 === selectedNavBardID} onClick={() => getUserLocal(3)}>
 				Page 3
 			</NavButton>
 		</Page>
@@ -46,8 +48,11 @@ const mapStateToProps = (state: IAppState) => ({
 	selectedNavBardID: state.ui.selectedNavId
 });
 
-const mapDispatchToProps = (dispatch: any) => ({
-	selectNavBar: (navId: number) => setSelectedNavBarID(dispatch, navId)
-});
+const mapDispatchToProps = (dispatch: any) => {
+	return {
+		selectNavBar: (navId: number) => setSelectedNavBarID(dispatch, navId),
+		getUserLocal: (userID: number) => dispatch(getUser(userID))
+	};
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(NavBar);
